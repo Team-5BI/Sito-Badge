@@ -9,18 +9,30 @@
 	<title>Generazione QR</title>
 </head>
 <body>
-	<script type="JavaScript">
-		//Qui ci va il codice per generare il QR
+<?php
+include("../header.php");
+?>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.qrcode.min.js"></script>
+	<script language="JavaScript">
+		function GeneraQR()
+		{
+			if(document.FormQR.classe.value=="nullo")
+			{
+				alert("Selezionare una classe")
+			}
+			else
+			{
+				jquery('#qrcode').qrcode(document.FormQR.classe.value)
+			}
+		}
 	</script>
-	<h1>Generazione QR</h1>
-	<form name="qr">
-		<div class="dropdown">
-  			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    			Dropdown button
-  			</button>
-  			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-		<select>
-		<option value="vide">Selezionate una classe</option>
+	<h1 align="center">Generazione QR</h1><br>
+	<div style="width: 100%; overflow: hidden;">
+	<div style="width: 50%; float: left;">
+	<form name="FormQR">
+		<select name="classe" class="form-control">
+		<option value="nullo">Selezionare una classe</option>
 		<option value="1AC">1AC</option>
 		<option value="1AE">1AE</option>
 		<option value="1AI">1AI</option>
@@ -100,7 +112,13 @@
 		<option value="5DLS">5DLS</option>
 		<option value="5FI">5FI</option>
 		</select><br>
-		<input type="submit" onClick="generaQR()">
+		<center><input type="submit" class="btn btn-primary" value="Genera QR" onClick="GeneraQR()"></center>
 	</form><br>
+	</div>
+	<div id="qrcode" style="width: 50%; float: left;"></div>
+	</div>
+<?php
+include("../footer.php");
+?>
 </body>
 </html>
