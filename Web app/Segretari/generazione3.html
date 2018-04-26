@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Segretario</title>
+</head>
+<body>
+<h1>Nuovo segretario</h1>
+<form method="post" action="esegui.php">
+
+  <!-- CASELLE DI TESTO -->
+  Nome<br>
+  <input type="text" name="nome"><br>
+  Cognome<br>
+  <input type="text" name="cognome"><br>
+  Data di nascita<br>
+  <input type="date" name="data"><br>
+  
+  <!-- SELECTBOX -->
+  Paese<br>
+  <select name="paese">
+  <option value="I">Italia</option>
+  <option value="E">Estero</option>
+  </select><br>
+
+  <!-- RADIO -->
+  Sesso<br>
+  <input type="radio" name="sesso" value="M"> M<br>
+  <input type="radio" name="sesso" value="F"> F<br>
+
+ <br>
+
+  <!-- SUBMIT -->
+  <input type="submit" name="invia" value="Invia i dati">
+
+</form>
+</body>
+</html>
